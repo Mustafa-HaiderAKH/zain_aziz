@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" default-locale="en-US">
+  <info>
+    <title>Trends in Sciences (Modified Vancouver)</title>
+    <id>http://www.zotero.org/styles/trends-in-sciences</id>
+    <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
+    <author>
+      <name>Custom Style</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="science"/>
+    <updated>2025-09-05T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
+    <layout suffix=".">
+      <text variable="citation-number" prefix="[" suffix="] "/>
+      <group delimiter=". ">
+        <names variable="author">
+          <name initialize-with=" " delimiter=", " and="text"/>
+        </names>
+        <text variable="title"/>
+        <choose>
+          <if type="article-journal">
+            <text variable="container-title" font-style="italic"/>
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+            <group delimiter="; ">
+              <group delimiter="(">
+                <text variable="volume"/>
+                <text variable="issue"/>
+              </group>
+              <text variable="page"/>
+            </group>
+          </if>
+          <else-if type="book">
+            <group delimiter=", ">
+              <text variable="publisher"/>
+              <text variable="publisher-place"/>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </group>
+            <text variable="page" prefix="p. "/>
+          </else-if>
+          <else-if type="chapter">
+            <text term="in" text-case="capitalize-first"/>
+            <names variable="editor" prefix=": " suffix=" (Ed.)."/>
+            <text variable="container-title" font-style="italic"/>
+            <group delimiter=", ">
+              <text variable="publisher"/>
+              <text variable="publisher-place"/>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </group>
+            <text variable="page" prefix="p. "/>
+          </else-if>
+          <else-if type="thesis">
+            <text variable="genre"/>
+            <group delimiter=", ">
+              <text variable="publisher"/>
+              <text variable="publisher-place"/>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </group>
+          </else-if>
+          <else-if type="webpage">
+            <text variable="container-title"/>
+            <text variable="URL" prefix="Available at: "/>
+            <text variable="accessed" prefix=", accessed "/>
+          </else-if>
+          <else-if type="patent">
+            <text variable="title"/>
+            <group delimiter=", ">
+              <text variable="publisher-place"/>
+              <text variable="number"/>
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </group>
+          </else-if>
+        </choose>
+      </group>
+      <text variable="DOI" prefix=". https://doi.org/"/>
+    </layout>
+  </bibliography>
+</style>
